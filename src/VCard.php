@@ -180,6 +180,24 @@ class VCard
         return $this;
     }
 
+
+        /**
+     * Add nickname
+     *
+     * @param  string $jobtitle The jobtitle for the person.
+     * @return $this
+     */
+    public function addNickname($nickname)
+    {
+        $this->setProperty(
+            'nickname',
+            'NICKNAME' . $this->getCharsetString(),
+            $nickname
+        );
+
+        return $this;
+    }
+
     /**
      * Add a label
      *
@@ -522,6 +540,7 @@ class VCard
         // init string
         $string = "BEGIN:VCARD\r\n";
         $string .= "VERSION:3.0\r\n";
+        $string .= "PRODID:-//DOWOOF//BCARD V1//RU\r\n";
         $string .= "REV:" . date("Y-m-d") . "T" . date("H:i:s") . "Z\r\n";
 
         // loop all properties
